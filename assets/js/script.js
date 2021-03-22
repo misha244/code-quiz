@@ -9,9 +9,15 @@
 
 //form div - create in JS and append to body -> fn createAndAppendForm ()
 
-// submitScore -> fn
+// submitScore fn
 //// get score
 //// get initials/name from input
 //// construct string -> e.g. - "AB - 22"
 //// store string in local storage
 //// -> navigate to high-scores.html
+
+// clearScore fn
+//// clear from local storage
+
+// goBack fn
+//// navigate back to the start (index.html)
