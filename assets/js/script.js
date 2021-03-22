@@ -4,9 +4,7 @@ const startQuizDiv = document.getElementById("start-quiz");
 
 const timerSpan = document.getElementById("timer");
 
-const
-
-let timerValue = 60;
+const bodyElement = document.body;
 
 // questions array
 questions = [
@@ -37,6 +35,16 @@ questions = [
   },
 ];
 
+//const createAndAppendForm = () => {};
+
+let timerValue = 60;
+
+// remove intro section when start btn pressed
+const startQuiz = () => {
+  const introDiv = document.getElementById("intro-section");
+  introDiv.remove();
+};
+
 const startTimer = () => {
   const timerTick = () => {
     timerValue -= 1;
@@ -48,9 +56,5 @@ const startTimer = () => {
   };
   const timer = setInterval(timerTick, 1000);
 };
-// replace intro section with quiz card
-const startQuiz = () => {
-
-}
 
 startButton.addEventListener("click", startQuiz);
