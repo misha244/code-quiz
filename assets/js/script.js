@@ -1,7 +1,10 @@
 const startButton = document.getElementById("start-btn");
-const startQuiz = document.getElementById("start-quiz");
+
+const startQuizDiv = document.getElementById("start-quiz");
 
 const timerSpan = document.getElementById("timer");
+
+const
 
 let timerValue = 60;
 
@@ -33,5 +36,21 @@ questions = [
     answer: "Ronnie Pickering",
   },
 ];
+
+const startTimer = () => {
+  const timerTick = () => {
+    timerValue -= 1;
+    timerSpan.textContent = timerValue;
+
+    if (timerValue === 0) {
+      clearInterval(timer);
+    }
+  };
+  const timer = setInterval(timerTick, 1000);
+};
+// replace intro section with quiz card
+const startQuiz = () => {
+
+}
 
 startButton.addEventListener("click", startQuiz);
