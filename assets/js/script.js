@@ -44,12 +44,12 @@ const constructQuizContainer = () => {};
 
 let timerValue = 60;
 
-// remove intro section when start btn pressed
+// remove intro section when start btn clicked
 const startQuiz = () => {
   const introDiv = document.getElementById("intro-section");
   introDiv.remove();
 };
-
+// start timer when start btn clicked
 const startTimer = () => {
   const timerTick = () => {
     timerValue -= 1;
