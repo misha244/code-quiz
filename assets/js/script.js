@@ -7,7 +7,7 @@ const timerSpan = document.getElementById("timer");
 const bodyElement = document.body;
 
 // questions array
-questions = [
+const questions = [
   {
     title: "Who let the dogs out?",
     choices: [
@@ -16,7 +16,7 @@ questions = [
       "Elon Musk",
       "The dogs let themselves out",
     ],
-    answer: "Elon Musk",
+    answer: "The Baha Men",
   },
   {
     title: "Moon landing?",
@@ -30,12 +30,17 @@ questions = [
   },
   {
     title: "Do you know who I am!?!",
-    choices: ["Who?!", "Ronnie Pickering!", "Who the fuck is that?", "Me"],
+    choices: [
+      "Who are you?!",
+      "Ronnie Pickering!",
+      "Who the fuck is that?",
+      "Me",
+    ],
     answer: "Ronnie Pickering",
   },
 ];
 
-//const createAndAppendForm = () => {};
+const constructQuizContainer = () => {};
 
 let timerValue = 60;
 
@@ -58,3 +63,4 @@ const startTimer = () => {
 };
 
 startButton.addEventListener("click", startQuiz);
+startButton.addEventListener("click", startTimer);
