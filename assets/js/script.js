@@ -59,16 +59,28 @@ const startTimer = () => {
   const timer = setInterval(timerTick, 1000);
 };
 
-// creating quiz card container
+// creating quiz question container
 const constructQuizContainer = () => {
   const quizContainerDiv = document.createElement("div");
   quizContainerDiv.setAttribute("class", "quiz-container");
   quizContainerDiv.setAttribute("id", "quiz-container");
 
-  const questionDiv = document.createElement("div");
-  questionDiv.setAttribute("class", "question-div");
-  questionDiv.setAttribute("id", "question-div");
+  const questionContainerDiv = document.createElement("div");
+  questionContainerDiv.setAttribute("class", "question-container");
+  questionContainerDiv.setAttribute("id", "question-container");
+
+  const answerContainerDiv = document.createElement("div");
+  answerContainerDiv.setAttribute("class", "answer-container");
+  answerContainerDiv.setAttribute("class", "answer-container");
+
+  return quizContainerDiv;
 };
+
+// displaying quiz question container
+
+// creating a fn to check correct/incorrect answer and show next question
+
+// calculating score fn
 
 startButton.addEventListener("click", startQuiz);
 startButton.addEventListener("click", startTimer);
