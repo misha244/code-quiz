@@ -1,5 +1,5 @@
 const startButton = document.getElementById("start-btn");
-const startQuizDiv = document.getElementById("start-quiz");
+const quizContainer = document.getElementById("quiz-container");
 const timerSpan = document.getElementById("timer");
 const introDiv = document.getElementById("intro-section");
 
@@ -10,7 +10,7 @@ let score = 0;
 let timerValue = 60;
 
 // declaring an index for question array
-let questionsIndex = 0;
+let index = 0;
 
 // questions array
 const questions = [
@@ -22,7 +22,7 @@ const questions = [
       "Elon Musk",
       "The dogs let themselves out",
     ],
-    rightAnswer: "The Baha Men",
+    correctAnswer: "The Baha Men",
   },
   {
     title: "Moon landing?",
@@ -32,7 +32,7 @@ const questions = [
       "Alexa, show Buzz Aldrin punching that dude",
       "alexa, play man on the moon by r.e.m.",
     ],
-    rightAnswer: "sure",
+    correctAnswer: "sure",
   },
   {
     title: "Do you know who I am!?!",
@@ -42,32 +42,10 @@ const questions = [
       "Who the fuck is that?",
       "Me",
     ],
-    rightAnswer: "Ronnie Pickering",
+    correctAnswer: "Ronnie Pickering",
   },
 ];
 
-// remove intro section when start btn clicked
-//const startQuiz = () => {
-//  introDiv.remove();
-//};
-// start timer when start btn clicked
-
-// create buttons for the answers
-// creating quiz question container
-// displaying quiz question container
-
-//TODO
-// creating a fn to check correct/incorrect answer and show next question
-
-// calculating score fn
-
-// create a game over div
-
-// create a enter initials&submit score div
-
-// go back to index
-
-// write a function to turn brain back to a solid state after its inevitable melting due to overheating
 const startTimer = () => {
   const timerTick = () => {
     timerValue -= 1;
@@ -79,24 +57,6 @@ const startTimer = () => {
   };
   const timer = setInterval(timerTick, 1000);
 };
-
-const questions = [
-  {
-    title: "How many heading elements are there in HTML?",
-    choices: ["3 headings", "4 headings", "5 headings", "6 headings"],
-    correctAnswer: "6 headings",
-  },
-  {
-    title: "Why is no one talking today?",
-    choices: ["Bad Throat", "Bored", "Just for fun", "Concentrating"],
-    correctAnswer: "Bored",
-  },
-];
-
-const startButton = document.getElementById("start-button");
-const quizContainer = document.getElementById("quiz-container");
-
-let index = 0;
 
 const createChoices = (choices) => {
   const parentDiv = document.createElement("div");
