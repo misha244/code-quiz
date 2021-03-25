@@ -51,6 +51,23 @@ const questions = [
 //  introDiv.remove();
 //};
 // start timer when start btn clicked
+
+// create buttons for the answers
+// creating quiz question container
+// displaying quiz question container
+
+//TODO
+// creating a fn to check correct/incorrect answer and show next question
+
+// calculating score fn
+
+// create a game over div
+
+// create a enter initials&submit score div
+
+// go back to index
+
+// write a function to turn brain back to a solid state after its inevitable melting due to overheating
 const startTimer = () => {
   const timerTick = () => {
     timerValue -= 1;
@@ -63,9 +80,24 @@ const startTimer = () => {
   const timer = setInterval(timerTick, 1000);
 };
 
-// creating quiz question container
+const questions = [
+  {
+    title: "How many heading elements are there in HTML?",
+    choices: ["3 headings", "4 headings", "5 headings", "6 headings"],
+    correctAnswer: "6 headings",
+  },
+  {
+    title: "Why is no one talking today?",
+    choices: ["Bad Throat", "Bored", "Just for fun", "Concentrating"],
+    correctAnswer: "Bored",
+  },
+];
 
-// create buttons for the answers
+const startButton = document.getElementById("start-button");
+const quizContainer = document.getElementById("quiz-container");
+
+let index = 0;
+
 const createChoices = (choices) => {
   const parentDiv = document.createElement("div");
 
@@ -85,21 +117,59 @@ const createChoices = (choices) => {
   return parentDiv;
 };
 
-// displaying quiz question container
+const verifyChoice = (event) => {
+  const target = event.target;
+  const currentTarget = event.currentTarget;
 
-//TODO
+  if (target.matches("button")) {
+    const answer = target.getAttribute("data-answer");
+    const correctAnswer = currentTarget.getAttribute("data-answer");
 
-// creating a fn to check correct/incorrect answer and show next question
+    if (answer === correctAnswer) {
+      index += 1;
+      quizContainer.removeChild(document.getElementById("question"));
+      renderQuestion();
+    } else {
+      alert("BOO");
+    }
+  }
+};
 
-// calculating score fn
+const createQuestion = (question) => {
+  const divContainer = document.createElement("div");
+  divContainer.setAttribute("id", "question");
+  divContainer.setAttribute("data-answer", question.correctAnswer);
 
-// create a game over div
+  const h2 = document.createElement("h2");
+  h2.textContent = question.title;
 
-// create a enter initials&submit score div
+  const choices = createChoices(question.choices);
 
-// go back to index
+  divContainer.append(h2, choices);
 
-// write a function to turn brain back to a solid state after its inevitable melting due to overheating
+  divContainer.addEventListener("click", verifyChoice);
 
-startButton.addEventListener("click", startTimer);
-startQuizDiv.addEventListener("click", startQuiz);
+  return divContainer;
+};
+
+const renderQuestion = () => {
+  if (index < questions.length) {
+    // create question container
+    const questionContainer = createQuestion(questions[index]);
+
+    // append question container to the DOM
+    quizContainer.appendChild(questionContainer);
+  } else {
+    alert("DONE");
+  }
+};
+
+const startQuiz = () => {
+  // remove the start button container
+  const startContainer = document.getElementById("start-container");
+  quizContainer.removeChild(startContainer);
+
+  renderQuestion();
+};
+
+startButton.addEventListener("click", startQuiz);
