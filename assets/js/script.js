@@ -34,6 +34,17 @@ const questions = [
     ],
     correctAnswer: "sure",
   },
+
+  {
+    title: "Dennis is asshole. Why Charlie hate",
+    choices: [
+      "Dee looks like a bird",
+      "Because of the implication",
+      "Dennis is a bastard man",
+      "Wild card, baby!",
+    ],
+    correctAnswer: "Dennis is a bastard man",
+  },
   {
     title: "Do you know who I am!?!",
     choices: [
@@ -42,7 +53,7 @@ const questions = [
       "Who the fuck is that?",
       "Me",
     ],
-    correctAnswer: "Ronnie Pickering",
+    correctAnswer: "Ronnie Pickering!",
   },
 ];
 
@@ -133,3 +144,4 @@ const startQuiz = () => {
 };
 
 startButton.addEventListener("click", startQuiz);
+startButton.addEventListener("click", startTimer);
