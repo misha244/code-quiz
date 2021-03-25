@@ -1,10 +1,8 @@
 const startButton = document.getElementById("start-btn");
-
 const startQuizDiv = document.getElementById("start-quiz");
-
 const timerSpan = document.getElementById("timer");
-
 const mainElement = document.querySelector("main");
+const introDiv = document.getElementById("intro-section");
 
 // questions array
 const questions = [
@@ -48,7 +46,6 @@ let timerValue = 60;
 
 // remove intro section when start btn clicked
 const startQuiz = () => {
-  const introDiv = document.getElementById("intro-section");
   introDiv.remove();
 };
 // start timer when start btn clicked
