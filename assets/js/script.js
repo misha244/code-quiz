@@ -4,7 +4,7 @@ const startQuizDiv = document.getElementById("start-quiz");
 
 const timerSpan = document.getElementById("timer");
 
-const bodyElement = document.body;
+const mainElement = document.querySelector("main");
 
 // questions array
 const questions = [
@@ -41,6 +41,8 @@ const questions = [
 ];
 
 const constructQuizContainer = () => {};
+
+// declaring initial value for the timer
 
 let timerValue = 60;
 
