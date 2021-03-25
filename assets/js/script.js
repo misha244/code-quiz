@@ -38,8 +38,6 @@ const questions = [
   },
 ];
 
-const constructQuizContainer = () => {};
-
 // declaring initial value for the timer
 
 let timerValue = 60;
@@ -59,6 +57,12 @@ const startTimer = () => {
     }
   };
   const timer = setInterval(timerTick, 1000);
+};
+
+// creating quiz card container
+const constructQuizContainer = () => {
+  const quizContainerDiv = document.createElement("div");
+  quizContainerDiv.setAttribute("class", "quiz-container");
 };
 
 startButton.addEventListener("click", startQuiz);
