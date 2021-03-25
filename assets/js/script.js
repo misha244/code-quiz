@@ -4,6 +4,12 @@ const timerSpan = document.getElementById("timer");
 const mainElement = document.querySelector("main");
 const introDiv = document.getElementById("intro-section");
 
+// declaring initial value for the timer
+let timerValue = 60;
+
+// declaring an index for question array
+let questionsIndex = 0;
+
 // questions array
 const questions = [
   {
@@ -38,10 +44,6 @@ const questions = [
   },
 ];
 
-// declaring initial value for the timer
-
-let timerValue = 60;
-
 // remove intro section when start btn clicked
 const startQuiz = () => {
   introDiv.remove();
@@ -73,14 +75,28 @@ const constructQuizContainer = () => {
   answerContainerDiv.setAttribute("class", "answer-container");
   answerContainerDiv.setAttribute("class", "answer-container");
 
+  quizContainerDiv.appendChild(questionContainerDiv);
+  quizContainerDiv.appendChild(answerContainerDiv);
+
   return quizContainerDiv;
 };
-
 // displaying quiz question container
+const viewQuestion = () => {
+  const selectedQuestion = questions;
+};
+//TODO
 
 // creating a fn to check correct/incorrect answer and show next question
 
 // calculating score fn
+
+// create a game over div
+
+// create a enter initials&submit score div
+
+// go back to index
+
+// write a function to turn brain back to a solid state after its inevitable melting due to overheating
 
 startButton.addEventListener("click", startQuiz);
 startButton.addEventListener("click", startTimer);
