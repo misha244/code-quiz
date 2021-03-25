@@ -63,6 +63,11 @@ const startTimer = () => {
 const constructQuizContainer = () => {
   const quizContainerDiv = document.createElement("div");
   quizContainerDiv.setAttribute("class", "quiz-container");
+  quizContainerDiv.setAttribute("id", "quiz-container");
+
+  const questionDiv = document.createElement("div");
+  questionDiv.setAttribute("class", "question-div");
+  questionDiv.setAttribute("id", "question-div");
 };
 
 startButton.addEventListener("click", startQuiz);
