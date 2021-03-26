@@ -94,10 +94,13 @@ const createChoices = (choices) => {
 const createQuestion = (question) => {
   const divElement = document.createElement("div");
   divElement.setAttribute("id", "question");
+  divElement.setAttribute("class", "question");
   divElement.setAttribute("data-answer", question.correctAnswer);
   console.log("yada yada yada");
 
   const h2 = document.createElement("h2");
+  h2.setAttribute("id", "title");
+  h2.setAttribute("class", "title");
   h2.textContent = question.title;
 
   const choices = createChoices(question.choices);
@@ -131,15 +134,8 @@ const answerCheck = (event) => {
 // render question
 const renderQuestion = () => {
   if (index < questions.length) {
-    // create question container
     const questionContainer = createQuestion(questions[index]);
-
-    // append question container to the DOM
     quizContainer.appendChild(questionContainer);
-  } else {
-    alert("play 'Celebration' by Kool & The Gang ");
-
-    // direct to game over form
   }
 };
 
