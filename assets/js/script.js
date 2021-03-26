@@ -140,6 +140,17 @@ const createQuestion = (question) => {
   return divContainer;
 };
 
+// create a game over form
+const createGameOverForm = () => {
+  const gameOverFormContainer = document.createElement("main");
+  gameOverFormContainer.setAttribute("id", "game-over");
+  gameOverFormContainer.setAttribute("class", "game-over");
+
+  const initialsForm = document.createElement("input");
+  initialsForm.setAttribute("placeholder", "Please enter your initials");
+  initialsForm.setAttribute("id", "initials-form");
+};
+
 const renderQuestion = () => {
   if (index < questions.length) {
     // create question container
@@ -160,7 +171,7 @@ const startQuiz = () => {
   renderQuestion();
 };
 //TODO
-// create a game over form
+
 // deduct from timer on wrong answer
 // set up highscores fns
 // take back to index.html when done
