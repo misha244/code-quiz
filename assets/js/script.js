@@ -169,9 +169,8 @@ const createGameOverForm = () => {
   finalScoreForm.setAttribute("class", "final-score");
 
   // append
-  gameOverForm.appendChild(initialsForm);
-  gameOverForm.appendChild(finalScoreForm);
-  gameOverFormContainer.appendChild(gameOverForm);
+  gameOverForm.append(initialsForm, finalScoreForm);
+  gameOverFormContainer.append(gameOverForm);
 };
 
 const renderQuestion = () => {
@@ -183,6 +182,7 @@ const renderQuestion = () => {
     quizContainer.appendChild(questionContainer);
   } else {
     alert("play 'Celebration' by Kool & The Gang ");
+    // direct to game over form
   }
 };
 
@@ -200,6 +200,7 @@ const startQuiz = () => {
 // take back to index.html when done
 // local memory store highscores
 // change qs to the proper ones
+// create clear score fn
 
 startButton.addEventListener("click", () => {
   startQuiz();

@@ -1,8 +1,12 @@
 * {
   font-family: Arial, Helvetica, sans-serif;
 }
+body {
+  background-color: rgb(175, 224, 170);
+}
 .header {
-  background-color: lavender;
+  background-color: mediumpurple;
+  text-decoration: none;
   display: flex;
   flex-direction: row;
   margin: 10px;
@@ -18,13 +22,8 @@
   text-align: center;
   padding: 20px;
 }
-.inspiration {
-  position: absolute;
-  top: 80%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
 .quiz-container {
+  background-color: yellow;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -33,4 +32,13 @@
   top: 30%;
   left: 50%;
   transform: translate(-50%, -50%);
+  padding: 20px;
+}
+.inspiration {
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 10px dashed mediumpurple;
+  border-radius: 35px;
 }
