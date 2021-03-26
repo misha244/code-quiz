@@ -4,13 +4,9 @@ const quizContainer = document.getElementById("quiz-container");
 const timerSpan = document.getElementById("timer");
 const introDiv = document.getElementById("intro-section");
 
-// declaring on-start score value
+// declaring on-start values
 let score = 0;
-
-// declaring on-start value for the timer
 let timerValue = 60;
-
-// declaring an index for question array
 let index = 0;
 
 // function to remove intro section on start
@@ -72,28 +68,8 @@ const questions = [
     correctAnswer: "Jake 'The Snake' Roberts",
   },
 ];
-// define seconds left from timer
-// timer
-const startTimer = () => {
-  const timerTick = () => {
-    timerValue -= 1;
-    timerSpan.textContent = timerValue;
 
-    if (timerValue <= 0) {
-      timerValue = 0;
-      timerSpan.textContent = timerValue;
-      clearInterval(timer);
-      displaygameOverContainer();
-    }
-    if (index === questions.length) {
-      clearInterval(timer);
-      displaygameOverContainer();
-      timerSpan.textContent = timerValue;
-    }
-  };
-  const timer = setInterval(timerTick, 1000);
-};
-
+// TODO create a fn to view high scores
 // create buttons for choices
 const createChoices = (choices) => {
   const parentDiv = document.createElement("div");
@@ -115,7 +91,7 @@ const createChoices = (choices) => {
 };
 
 // verify choice and continue to next question
-const verifyChoice = (event) => {
+const answerCheck = (event) => {
   const target = event.target;
   const currentTarget = event.currentTarget;
 
@@ -133,8 +109,8 @@ const verifyChoice = (event) => {
     }
   }
 };
-{
-}
+
+// create question
 const createQuestion = (question) => {
   const divContainer = document.createElement("div");
   divContainer.setAttribute("id", "question");
@@ -148,14 +124,61 @@ const createQuestion = (question) => {
 
   divContainer.append(h2, choices);
 
-  divContainer.addEventListener("click", verifyChoice);
+  divContainer.addEventListener("click", answerCheck);
 
   return divContainer;
 };
 
+// render question
+const renderQuestion = () => {
+  if (index < questions.length) {
+    // create question container
+    const questionContainer = createQuestion(questions[index]);
+
+    // append question container to the DOM
+    quizContainer.appendChild(questionContainer);
+  } else {
+    alert("play 'Celebration' by Kool & The Gang ");
+
+    // direct to game over form
+  }
+};
+
+// remove start container and start quiz
+const startQuiz = () => {
+  // remove the start button container
+  const startContainer = document.getElementById("start-container");
+  quizContainer.removeChild(startContainer);
+
+  renderQuestion();
+};
+
+// start timer
+const startTimer = () => {
+  const timerTick = () => {
+    timerValue -= 1;
+    timerSpan.textContent = timerValue;
+
+    if (timerValue === 0) {
+      // timerValue = 0;
+      timerSpan.textContent = timerValue;
+      clearInterval(timer);
+    }
+    if (index === questions.length) {
+      clearInterval(timer);
+      timerSpan.textContent = timerValue;
+    }
+  };
+  const timer = setInterval(timerTick, 1000);
+};
 // determine final score
 // const finalScore = () => {};
 
+// display game over fn
+const displaygameOverContainer = () => {
+  quizContainer.removeChild(document.getElementById("question"));
+  gameOverContainer;
+};
 // create a game over form
 const createGameOverForm = () => {
   const gameOverContainer = document.createElement("div");
@@ -199,33 +222,6 @@ const createGameOverForm = () => {
   gameOverForm.appendChild(submitButton);
 };
 
-// display game over fn
-const displaygameOverContainer = () => {
-  quizContainer.removeChild(document.getElementById("question"));
-  gameOverContainer;
-};
-
-const renderQuestion = () => {
-  if (index < questions.length) {
-    // create question container
-    const questionContainer = createQuestion(questions[index]);
-
-    // append question container to the DOM
-    quizContainer.appendChild(questionContainer);
-  } else {
-    alert("play 'Celebration' by Kool & The Gang ");
-
-    // direct to game over form
-  }
-};
-
-const startQuiz = () => {
-  // remove the start button container
-  const startContainer = document.getElementById("start-container");
-  quizContainer.removeChild(startContainer);
-
-  renderQuestion();
-};
 //TODO
 
 // set up highscores fns
