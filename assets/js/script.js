@@ -121,9 +121,14 @@ const answerCheck = (event) => {
     const correctAnswer = currentTarget.getAttribute("data-answer");
 
     if (answer === correctAnswer) {
+      const nextQuestion = () => {
+        const questionElement = document.getElementById("question");
+        if (index < questions.length) {
+          quizContainer.removeChild(document.getElementById("question"));
+          renderQuestion();
+        }
+      };
       index += 1;
-      quizContainer.removeChild(document.getElementById("question"));
-      renderQuestion();
     } else if (answer !== correctAnswer) {
       alert(" 'NO!' - Jeremy Paxman");
       timerValue -= 10;
