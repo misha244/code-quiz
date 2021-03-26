@@ -122,11 +122,13 @@ const verifyChoice = (event) => {
     }
   }
 };
-
+{
+}
 const createQuestion = (question) => {
   const divContainer = document.createElement("div");
   divContainer.setAttribute("id", "question");
   divContainer.setAttribute("data-answer", question.correctAnswer);
+  console.log("yada yada yada");
 
   const h2 = document.createElement("h2");
   h2.textContent = question.title;
@@ -142,13 +144,18 @@ const createQuestion = (question) => {
 
 // create a game over form
 const createGameOverForm = () => {
-  const gameOverFormContainer = document.createElement("main");
-  gameOverFormContainer.setAttribute("id", "game-over");
-  gameOverFormContainer.setAttribute("class", "game-over");
+  const gameOverFormContainer = document.createElement("div");
+  gameOverFormContainer.setAttribute("id", "game-over-container");
+  gameOverFormContainer.setAttribute("class", "game-over-container");
 
   const initialsForm = document.createElement("input");
   initialsForm.setAttribute("placeholder", "Please enter your initials");
   initialsForm.setAttribute("id", "initials-form");
+  initialsForm.setAttribute("class", "initials-form");
+
+  const finalScoreForm = document.createElement("span");
+  finalScoreForm.setAttribute("id", "final-score");
+  finalScoreForm.setAttribute("class", "final-score");
 };
 
 const renderQuestion = () => {
