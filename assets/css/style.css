@@ -32,14 +32,17 @@ body {
   top: 20%;
   left: 50%;
   transform: translate(-50%);
-
-  padding: 20px;
+  margin: 0 0 100px 0;
+  padding: 20px 20px 50px 20px;
 }
 .img {
-  margin: 20px;
-  padding: ;
+  padding: 10px;
 }
 .inspiration {
   border: 10px dashed mediumpurple;
   border-radius: 35px;
+  width: 320px;
+}
+.start-btn {
+  font-size: 25px;
 }
