@@ -71,15 +71,23 @@ const questions = [
     correctAnswer: "Jake 'The Snake' Roberts",
   },
 ];
-
+// define seconds left from timer
 // timer
 const startTimer = () => {
   const timerTick = () => {
     timerValue -= 1;
     timerSpan.textContent = timerValue;
 
-    if (timerValue === 0) {
+    if (timerValue <= 0) {
+      timerValue = 0;
+      timerSpan.textContent = timerValue;
       clearInterval(timer);
+      displayGameOverFormContainer();
+    }
+    if (index === questions.length) {
+      clearInterval(timer);
+      displayGameOverFormContainer();
+      timerSpan.textContent = timerValue;
     }
   };
   const timer = setInterval(timerTick, 1000);
@@ -118,12 +126,9 @@ const verifyChoice = (event) => {
       index += 1;
       quizContainer.removeChild(document.getElementById("question"));
       renderQuestion();
-    } else {
+    } else if (answer !== correctAnswer) {
       alert(" 'NO!' - Jeremy Paxman");
       timerValue -= 10;
-      if (timerValue === 0) {
-        break;
-      }
     }
   }
 };
@@ -148,12 +153,25 @@ const createQuestion = (question) => {
 };
 
 // determine final score
+// const finalScore = () => {};
 
 // create a game over form
 const createGameOverForm = () => {
   const gameOverFormContainer = document.createElement("div");
   gameOverFormContainer.setAttribute("id", "game-over-container");
   gameOverFormContainer.setAttribute("class", "game-over-container");
+  quizContainer.appendChild(gameOverFormContainer);
+
+  const overElement = document.createElement("h2");
+  overElement.setAttribute("id", "title");
+  overElement.setAttribute("class", "title");
+  overElement.textContent = "Game Over!";
+  gameOverFormContainer.appendChild(overElement);
+
+  const finalScoreForm = document.createElement("span");
+  finalScoreForm.setAttribute("id", "final-score");
+  finalScoreForm.setAttribute("class", "final-score");
+  finalScoreForm.textContent = "Your final score is";
 
   const gameOverForm = document.createElement("form");
   gameOverForm.setAttribute("id", "game-over-form");
@@ -163,14 +181,12 @@ const createGameOverForm = () => {
   initialsForm.setAttribute("placeholder", "Please enter your initials");
   initialsForm.setAttribute("id", "initials-form");
   initialsForm.setAttribute("class", "initials-form");
+};
 
-  const finalScoreForm = document.createElement("span");
-  finalScoreForm.setAttribute("id", "final-score");
-  finalScoreForm.setAttribute("class", "final-score");
-
-  // append
-  gameOverForm.append(initialsForm, finalScoreForm);
-  gameOverFormContainer.append(gameOverForm);
+// display game over fn
+const displayGameOverFormContainer = () => {
+  quizContainer.removeChild(document.getElementById("question"));
+  gameOverFormContainer;
 };
 
 const renderQuestion = () => {
@@ -182,6 +198,7 @@ const renderQuestion = () => {
     quizContainer.appendChild(questionContainer);
   } else {
     alert("play 'Celebration' by Kool & The Gang ");
+
     // direct to game over form
   }
 };
@@ -195,7 +212,6 @@ const startQuiz = () => {
 };
 //TODO
 
-// deduct from timer on wrong answer
 // set up highscores fns
 // take back to index.html when done
 // local memory store highscores
