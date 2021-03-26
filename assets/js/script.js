@@ -12,6 +12,11 @@ let timerValue = 60;
 // declaring an index for question array
 let index = 0;
 
+// function to remove intro section on start
+const removeIntroSection = () => {
+  introDiv.remove();
+};
+
 // questions array
 const questions = [
   {
@@ -158,4 +163,5 @@ const startQuiz = () => {
 startButton.addEventListener("click", () => {
   startQuiz();
   startTimer();
+  removeIntroSection();
 });
