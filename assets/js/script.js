@@ -121,9 +121,9 @@ const verifyChoice = (event) => {
     } else {
       alert(" 'NO!' - Jeremy Paxman");
       timerValue -= 10;
-      index += 1;
-      quizContainer.removeChild(document.getElementById("question"));
-      renderQuestion();
+      if (timerValue === 0) {
+        break;
+      }
     }
   }
 };
