@@ -82,11 +82,11 @@ const startTimer = () => {
       timerValue = 0;
       timerSpan.textContent = timerValue;
       clearInterval(timer);
-      displayGameOverFormContainer();
+      displaygameOverContainer();
     }
     if (index === questions.length) {
       clearInterval(timer);
-      displayGameOverFormContainer();
+      displaygameOverContainer();
       timerSpan.textContent = timerValue;
     }
   };
@@ -157,22 +157,22 @@ const createQuestion = (question) => {
 
 // create a game over form
 const createGameOverForm = () => {
-  const gameOverFormContainer = document.createElement("div");
-  gameOverFormContainer.setAttribute("id", "game-over-container");
-  gameOverFormContainer.setAttribute("class", "game-over-container");
-  quizContainer.appendChild(gameOverFormContainer);
+  const gameOverContainer = document.createElement("div");
+  gameOverContainer.setAttribute("id", "game-over-container");
+  gameOverContainer.setAttribute("class", "game-over-container");
+  quizContainer.appendChild(gameOverContainer);
 
   const overElement = document.createElement("h2");
   overElement.setAttribute("id", "title");
   overElement.setAttribute("class", "title");
   overElement.textContent = "Game Over!";
-  gameOverFormContainer.appendChild(overElement);
+  gameOverContainer.appendChild(overElement);
 
   const scoreSpan = document.createElement("div");
   scoreSpan.setAttribute("id", "final-score");
   scoreSpan.setAttribute("class", "final-score");
   scoreSpan.textContent = "Your final score is";
-  gameOverFormContainer.appendChild(scoreSpan);
+  gameOverContainer.appendChild(scoreSpan);
 
   const gameOverForm = document.createElement("form");
   gameOverForm.setAttribute("id", "game-over-form");
@@ -185,9 +185,9 @@ const createGameOverForm = () => {
 };
 
 // display game over fn
-const displayGameOverFormContainer = () => {
+const displaygameOverContainer = () => {
   quizContainer.removeChild(document.getElementById("question"));
-  gameOverFormContainer;
+  gameOverContainer;
 };
 
 const renderQuestion = () => {
