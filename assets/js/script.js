@@ -105,6 +105,7 @@ const createChoices = (choices) => {
   return parentDiv;
 };
 
+// verify choice and continue to next question
 const verifyChoice = (event) => {
   const target = event.target;
   const currentTarget = event.currentTarget;
@@ -119,6 +120,10 @@ const verifyChoice = (event) => {
       renderQuestion();
     } else {
       alert(" 'NO!' - Jeremy Paxman");
+      timerValue -= 10;
+      index += 1;
+      quizContainer.removeChild(document.getElementById("question"));
+      renderQuestion();
     }
   }
 };
@@ -142,11 +147,17 @@ const createQuestion = (question) => {
   return divContainer;
 };
 
+// determine final score
+
 // create a game over form
 const createGameOverForm = () => {
   const gameOverFormContainer = document.createElement("div");
   gameOverFormContainer.setAttribute("id", "game-over-container");
   gameOverFormContainer.setAttribute("class", "game-over-container");
+
+  const gameOverForm = document.createElement("form");
+  gameOverForm.setAttribute("id", "game-over-form");
+  gameOverForm.setAttribute("class", "game-over-form");
 
   const initialsForm = document.createElement("input");
   initialsForm.setAttribute("placeholder", "Please enter your initials");
@@ -156,6 +167,11 @@ const createGameOverForm = () => {
   const finalScoreForm = document.createElement("span");
   finalScoreForm.setAttribute("id", "final-score");
   finalScoreForm.setAttribute("class", "final-score");
+
+  // append
+  gameOverForm.appendChild(initialsForm);
+  gameOverForm.appendChild(finalScoreForm);
+  gameOverFormContainer.appendChild(gameOverForm);
 };
 
 const renderQuestion = () => {
