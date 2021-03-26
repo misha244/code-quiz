@@ -118,7 +118,7 @@ const verifyChoice = (event) => {
       quizContainer.removeChild(document.getElementById("question"));
       renderQuestion();
     } else {
-      alert("BOO");
+      alert(" 'NO!' - Jeremy Paxman");
     }
   }
 };
@@ -148,7 +148,7 @@ const renderQuestion = () => {
     // append question container to the DOM
     quizContainer.appendChild(questionContainer);
   } else {
-    alert("DONE");
+    alert("play 'Celebration' by Kool & The Gang ");
   }
 };
 
@@ -159,6 +159,13 @@ const startQuiz = () => {
 
   renderQuestion();
 };
+//TODO
+// create a game over form
+// deduct from timer on wrong answer
+// set up highscores fns
+// take back to index.html when done
+// local memory store highscores
+// change qs to the proper ones
 
 startButton.addEventListener("click", () => {
   startQuiz();
