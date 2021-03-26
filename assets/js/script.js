@@ -168,11 +168,15 @@ const createGameOverForm = () => {
   overElement.textContent = "Game Over!";
   gameOverContainer.appendChild(overElement);
 
-  const scoreSpan = document.createElement("div");
-  scoreSpan.setAttribute("id", "final-score");
-  scoreSpan.setAttribute("class", "final-score");
-  scoreSpan.textContent = "Your final score is";
-  gameOverContainer.appendChild(scoreSpan);
+  const scoreDiv = document.createElement("div");
+  scoreDiv.setAttribute("id", "final-score");
+  scoreDiv.setAttribute("class", "final-score");
+  scoreDiv.textContent = "Your final score is";
+  gameOverContainer.appendChild(scoreDiv);
+
+  const spanElement = document.createElement("span");
+  spanElement.textContent = timerValue;
+  scoreDiv.appendChild(spanElement);
 
   const gameOverForm = document.createElement("form");
   gameOverForm.setAttribute("id", "game-over-form");
