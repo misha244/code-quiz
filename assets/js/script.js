@@ -181,11 +181,14 @@ const createGameOverForm = () => {
   const gameOverForm = document.createElement("form");
   gameOverForm.setAttribute("id", "game-over-form");
   gameOverForm.setAttribute("class", "game-over-form");
+  gameOverContainer.appendChild(gameOverForm);
 
   const initialsForm = document.createElement("input");
+  initialsForm.setAttribute("type", "text");
   initialsForm.setAttribute("placeholder", "Please enter your initials");
-  initialsForm.setAttribute("id", "initials-form");
-  initialsForm.setAttribute("class", "initials-form");
+  initialsForm.setAttribute("id", "initials-input");
+  initialsForm.setAttribute("class", "initials-input");
+  gameOverForm.appendChild(initialsForm);
 };
 
 // display game over fn
