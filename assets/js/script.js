@@ -1,3 +1,4 @@
+const bodyElement = document.body;
 const startButton = document.getElementById("start-btn");
 const quizContainer = document.getElementById("quiz-container");
 const timerSpan = document.getElementById("timer");
