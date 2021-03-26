@@ -67,6 +67,7 @@ const questions = [
   },
 ];
 
+// timer
 const startTimer = () => {
   const timerTick = () => {
     timerValue -= 1;
@@ -79,6 +80,7 @@ const startTimer = () => {
   const timer = setInterval(timerTick, 1000);
 };
 
+// create buttons for choices
 const createChoices = (choices) => {
   const parentDiv = document.createElement("div");
 
