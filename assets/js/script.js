@@ -191,6 +191,11 @@ const createGameOverForm = () => {
   gameOverForm.appendChild(initialsForm);
 
   const submitButton = document.createElement("button");
+  submitButton.setAttribute("type", "submit");
+  submitButton.setAttribute("id", "submit-btn");
+  submitButton.setAttribute("class", "submit-btn");
+  submitButton.textContent = "Submit";
+  gameOverForm.appendChild(submitButton);
 };
 
 // display game over fn
@@ -227,6 +232,7 @@ const startQuiz = () => {
 // local memory store highscores
 // change qs to the proper ones
 // create clear score fn
+// try not to have a brain aneurysm while completing the above tasks
 
 startButton.addEventListener("click", () => {
   startQuiz();
