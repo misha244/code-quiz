@@ -75,21 +75,39 @@ const createChoices = (choices) => {
   const parentDiv = document.createElement("div");
 
   const createChoiceAndAppend = (choice) => {
-    const div = document.createElement("div");
+    const divElement = document.createElement("div");
     const button = document.createElement("button");
     button.setAttribute("data-answer", choice);
+    button.setAttribute("class", "choice-btn");
     button.textContent = choice;
 
-    div.appendChild(button);
+    divElement.appendChild(button);
 
-    parentDiv.appendChild(div);
+    parentDiv.appendChild(divElement);
   };
 
   choices.forEach(createChoiceAndAppend);
 
   return parentDiv;
 };
+// create question
+const createQuestion = (question) => {
+  const divElement = document.createElement("div");
+  divElement.setAttribute("id", "question");
+  divElement.setAttribute("data-answer", question.correctAnswer);
+  console.log("yada yada yada");
 
+  const h2 = document.createElement("h2");
+  h2.textContent = question.title;
+
+  const choices = createChoices(question.choices);
+
+  divElement.append(h2, choices);
+
+  divElement.addEventListener("click", answerCheck);
+
+  return divElement;
+};
 // verify choice and continue to next question
 const answerCheck = (event) => {
   const target = event.target;
@@ -108,25 +126,6 @@ const answerCheck = (event) => {
       timerValue -= 10;
     }
   }
-};
-
-// create question
-const createQuestion = (question) => {
-  const divContainer = document.createElement("div");
-  divContainer.setAttribute("id", "question");
-  divContainer.setAttribute("data-answer", question.correctAnswer);
-  console.log("yada yada yada");
-
-  const h2 = document.createElement("h2");
-  h2.textContent = question.title;
-
-  const choices = createChoices(question.choices);
-
-  divContainer.append(h2, choices);
-
-  divContainer.addEventListener("click", answerCheck);
-
-  return divContainer;
 };
 
 // render question
