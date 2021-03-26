@@ -189,6 +189,8 @@ const createGameOverForm = () => {
   initialsForm.setAttribute("id", "initials-input");
   initialsForm.setAttribute("class", "initials-input");
   gameOverForm.appendChild(initialsForm);
+
+  const submitButton = document.createElement("button");
 };
 
 // display game over fn
