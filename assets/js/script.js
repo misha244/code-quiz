@@ -55,6 +55,16 @@ const questions = [
     ],
     correctAnswer: "Ronnie Pickering!",
   },
+  {
+    title: "Who was Stone Cold Steve Austin addressing in his 3:16 promo?",
+    choices: [
+      "Shawn Michaels",
+      "Vince McMahon",
+      "Triple H",
+      "Jake 'The Snake' Roberts",
+    ],
+    correctAnswer: "Jake 'The Snake' Roberts",
+  },
 ];
 
 const startTimer = () => {
@@ -143,5 +153,7 @@ const startQuiz = () => {
   renderQuestion();
 };
 
-startButton.addEventListener("click", startQuiz);
-startButton.addEventListener("click", startTimer);
+startButton.addEventListener("click", () => {
+  startQuiz();
+  startTimer();
+});
