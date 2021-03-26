@@ -20,9 +20,8 @@
 }
 .inspiration {
   position: absolute;
-  top: 85%;
+  top: 80%;
   left: 50%;
-  padding: 5px;
   transform: translate(-50%, -50%);
 }
 .quiz-container {
@@ -30,4 +29,8 @@
   flex-direction: column;
   justify-content: center;
   text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
