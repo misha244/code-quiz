@@ -276,6 +276,8 @@ const createGameOverForm = () => {
 const startQuiz = () => {
   // remove intro div
   quizContainer.removeChild(introDivElement);
+  // remove start btn
+  startQuizBtn.remove();
   // create question div
   renderQuestion(questionsArray[index]);
 };
