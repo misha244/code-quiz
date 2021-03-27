@@ -23,6 +23,11 @@ const onLoad = () => {
   getScoresFromLocal();
 };
 
+// add event listener on load
+window.addEventListener("load", (event) => {
+  console.log("page is fully loaded");
+});
+
 // TODO
 
 /// create li for each score item
