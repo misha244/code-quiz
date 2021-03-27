@@ -9,11 +9,6 @@ let score = 0;
 let timerValue = 60;
 let index = 0;
 
-// function to remove intro section on start
-const removeIntroSection = () => {
-  introDiv.remove();
-};
-
 // questions array
 const questions = [
   {
@@ -96,7 +91,6 @@ const createQuestion = (question) => {
   divElement.setAttribute("id", "question");
   divElement.setAttribute("class", "question");
   divElement.setAttribute("data-answer", question.correctAnswer);
-  console.log("yada yada yada");
 
   const h2 = document.createElement("h2");
   h2.setAttribute("id", "title");
@@ -121,17 +115,20 @@ const answerCheck = (event) => {
     const correctAnswer = currentTarget.getAttribute("data-answer");
 
     if (answer === correctAnswer) {
-      const nextQuestion = () => {
-        const questionElement = document.getElementById("question");
-        if (index < questions.length) {
-          quizContainer.removeChild(document.getElementById("question"));
-          renderQuestion();
-        }
-      };
-      index += 1;
-    } else if (answer !== correctAnswer) {
-      alert(" 'NO!' - Jeremy Paxman");
+      const questionElement = document.getElementById("question");
+      if (index < questions.length) {
+        quizContainer.removeChild(questionElement);
+        renderQuestion(questions.length);
+        index += 1;
+      }
+
+      target.setAttribute("class", "correct-answer");
+    }
+    if (answer !== correctAnswer) {
       timerValue -= 10;
+      const wrongAnswer = document.createElement("h3");
+      wrongAnswer.textContent = "Wrong!";
+      return wrongAnswer;
     }
   }
 };
@@ -142,15 +139,6 @@ const renderQuestion = () => {
     const questionContainer = createQuestion(questions[index]);
     quizContainer.appendChild(questionContainer);
   }
-};
-
-// remove start container and start quiz
-const startQuiz = () => {
-  // remove the start button container
-  const startContainer = document.getElementById("start-container");
-  quizContainer.removeChild(startContainer);
-
-  renderQuestion();
 };
 
 // start timer
@@ -222,6 +210,15 @@ const createGameOverForm = () => {
   gameOverForm.appendChild(submitButton);
 };
 
+// remove start & intro container and start quiz
+const startQuiz = () => {
+  const startContainer = document.getElementById("start-container");
+  quizContainer.removeChild(startContainer);
+
+  renderQuestion();
+
+  introDiv.remove();
+};
 //TODO
 
 // set up highscores fns
@@ -234,5 +231,4 @@ const createGameOverForm = () => {
 startButton.addEventListener("click", () => {
   startQuiz();
   startTimer();
-  removeIntroSection();
 });
