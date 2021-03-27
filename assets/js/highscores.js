@@ -14,7 +14,7 @@ const clearScore = () => {
 
 // fn to get scores from storage
 const getScoresFromLocal = () => {
-  const highScores = localStorage.getItem("highScores");
+  const highScores = JSON.parse(localStorage.getItem("highScores"));
   console.log(highScores);
 };
 
@@ -32,8 +32,12 @@ window.addEventListener("load", onLoad) => {
 goBackButton.addEventListener("click", goBack);
 clearScoreButton.addEventListener("click", clearScore);
 
-// TODO
-
+// create high scores table using local storage
 /// create li for each score item
 /// append to score div
-// create high scores array
+/// organize scores - descending
+
+// TODO
+
+
+
