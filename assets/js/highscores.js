@@ -18,9 +18,13 @@ const getScoresFromLocal = () => {
   console.log(highScores);
 };
 
+// on load - read local storage & remove from page
+const onLoad = () => {
+  getScoresFromLocal();
+};
+
 // TODO
 
-// on load - read local storage & remove from page
 /// create li for each score item
 /// append to score div
 // create high scores array
