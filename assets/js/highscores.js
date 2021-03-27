@@ -4,7 +4,7 @@ const clearScoreButton = document.getElementById("clear-btn");
 
 // go back fn - navigate to index.html
 const goBack = () => {
-  location.href = "/index.html";
+  location.href = "./index.html";
 };
 
 // clear score fn - remove from local storage
