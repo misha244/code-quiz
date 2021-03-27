@@ -7,10 +7,13 @@ const goBack = () => {
   location.href = "/index.html";
 };
 
+// clear score fn - remove from local storage
+const clearScore = () => {
+  localStorage.clear();
+};
 // TODO
 // fn to get scores from storage
 // on load - read local storage & remove from page
 /// create li for each score item
 /// append to score div
 // create high scores array
-// clear score fn - remove from local storage
