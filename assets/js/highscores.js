@@ -24,8 +24,8 @@ const onLoad = () => {
 };
 
 // add event listener on load
-window.addEventListener("load", (event) => {
-  console.log("page is fully loaded");
+window.addEventListener("load", onLoad) => {
+  console.log("Oh wow - Owen Wilson");
 });
 
 // TODO
