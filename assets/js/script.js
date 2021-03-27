@@ -1,16 +1,16 @@
 const bodyElement = document.body;
-const startButton = document.getElementById("start-btn");
+const startQuizBtn = document.getElementById("start-btn");
 const quizContainer = document.getElementById("quiz-container");
 const timerSpan = document.getElementById("timer");
-const introDiv = document.getElementById("intro-section");
+const introDivElement = document.getElementById("intro-section");
 
-// declaring on-start values
-let score = 0;
+// declaring on-start value
 let timerValue = 60;
 let index = 0;
+timerSpan.textContent = timerValue;
 
 // questions array
-const questions = [
+const questionsArray = [
   {
     title: "Who let the dogs out?",
     choices: [
@@ -19,7 +19,7 @@ const questions = [
       "Elon Musk",
       "The dogs let themselves out",
     ],
-    correctAnswer: "The Baha Men",
+    answer: "The Baha Men",
   },
   {
     title: "Moon landing?",
@@ -29,7 +29,7 @@ const questions = [
       "Alexa, show Buzz Aldrin punching that dude",
       "alexa, play man on the moon by r.e.m.",
     ],
-    correctAnswer: "sure",
+    answer: "sure",
   },
 
   {
@@ -40,7 +40,7 @@ const questions = [
       "Dennis is a bastard man",
       "Wild card, baby!",
     ],
-    correctAnswer: "Dennis is a bastard man",
+    answer: "Dennis is a bastard man",
   },
   {
     title: "Do you know who I am!?!",
@@ -50,7 +50,7 @@ const questions = [
       "Who the fuck is that?",
       "Me",
     ],
-    correctAnswer: "Ronnie Pickering!",
+    answer: "Ronnie Pickering!",
   },
   {
     title: "Who was Stone Cold Steve Austin addressing in his 3:16 promo?",
@@ -60,130 +60,191 @@ const questions = [
       "Triple H",
       "Jake 'The Snake' Roberts",
     ],
-    correctAnswer: "Jake 'The Snake' Roberts",
+    answer: "Jake 'The Snake' Roberts",
   },
 ];
 
-// TODO create a fn to view high scores
-// create buttons for choices
+// create buttons for the choices
 const createChoices = (choices) => {
   const parentDiv = document.createElement("div");
 
   const createChoiceAndAppend = (choice) => {
-    const divElement = document.createElement("div");
+    const gameOverContainer = document.createElement("div");
     const button = document.createElement("button");
     button.setAttribute("data-answer", choice);
-    button.setAttribute("class", "choice-btn");
+    button.setAttribute("class", "btn choice-btn");
     button.textContent = choice;
 
-    divElement.appendChild(button);
+    gameOverContainer.appendChild(button);
 
-    parentDiv.appendChild(divElement);
+    parentDiv.appendChild(gameOverContainer);
   };
-
   choices.forEach(createChoiceAndAppend);
 
   return parentDiv;
 };
-// create question
-const createQuestion = (question) => {
-  const divElement = document.createElement("div");
-  divElement.setAttribute("id", "question");
-  divElement.setAttribute("class", "question");
-  divElement.setAttribute("data-answer", question.correctAnswer);
 
-  const h2 = document.createElement("h2");
-  h2.setAttribute("id", "title");
-  h2.setAttribute("class", "title");
-  h2.textContent = question.title;
+// create questions from the questions array
+const createQuestion = (question) => {
+  const gameOverContainer = document.createElement("div");
+  gameOverContainer.setAttribute("id", "question-container");
+  gameOverContainer.setAttribute("class", "question-container");
+  gameOverContainer.setAttribute("data-answer", question.answer);
+
+  const overElement = document.createElement("h2");
+  overElement.setAttribute("id", "question");
+  overElement.setAttribute("class", "question");
+  overElement.textContent = question.title;
 
   const choices = createChoices(question.choices);
 
-  divElement.append(h2, choices);
+  gameOverContainer.append(overElement, choices);
+  gameOverContainer.addEventListener("click", verifyChoice);
 
-  divElement.addEventListener("click", answerCheck);
-
-  return divElement;
-};
-// verify choice and continue to next question
-const answerCheck = (event) => {
-  const target = event.target;
-  const currentTarget = event.currentTarget;
-
-  if (target.matches("button")) {
-    const answer = target.getAttribute("data-answer");
-    const correctAnswer = currentTarget.getAttribute("data-answer");
-
-    if (answer === correctAnswer) {
-      const questionElement = document.getElementById("question");
-      if (index < questions.length) {
-        quizContainer.removeChild(questionElement);
-        renderQuestion(questions.length);
-        index += 1;
-      }
-
-      target.setAttribute("class", "correct-answer");
-    }
-    if (answer !== correctAnswer) {
-      timerValue -= 10;
-      const wrongAnswer = document.createElement("h3");
-      wrongAnswer.textContent = "Wrong!";
-      return wrongAnswer;
-    }
-  }
+  return gameOverContainer;
 };
 
 // render question
-const renderQuestion = () => {
-  if (index < questions.length) {
-    const questionContainer = createQuestion(questions[index]);
+const renderQuestion = (question) => {
+  if (index < questionsArray.length) {
+    const questionContainer = createQuestion(question);
     quizContainer.appendChild(questionContainer);
   }
 };
 
-// start timer
+// set up start timer fn
 const startTimer = () => {
   const timerTick = () => {
-    timerValue -= 1;
     timerSpan.textContent = timerValue;
+    timerValue -= 1;
 
-    if (timerValue === 0) {
-      // timerValue = 0;
+    if (timerValue <= 0) {
+      timerValue = 0;
       timerSpan.textContent = timerValue;
       clearInterval(timer);
+      displayGameOverContainer();
     }
-    if (index === questions.length) {
+    if (index === questionsArray.length) {
       clearInterval(timer);
+      displayGameOverContainer();
       timerSpan.textContent = timerValue;
     }
   };
+
   const timer = setInterval(timerTick, 1000);
 };
-// determine final score
-// const finalScore = () => {};
 
-// display game over fn
-const displaygameOverContainer = () => {
-  quizContainer.removeChild(document.getElementById("question"));
-  gameOverContainer;
+// verify choice and continue to next question
+const verifyChoice = (event) => {
+  const target = event.target;
+  const currentTarget = event.currentTarget;
+
+  if (target.matches("button")) {
+    const answer = target.dataset.answer;
+    const correctAnswer = currentTarget.getAttribute("data-answer");
+
+    if (answer === correctAnswer) {
+      const replaceQuestion = () => {
+        const questionContainer = document.getElementById("question-container");
+        if (index < questionsArray.length) {
+          quizContainer.removeChild(questionContainer);
+          renderQuestion(questionsArray[index]);
+        }
+      };
+
+      index += 1;
+      target.setAttribute("class", "correct-answer");
+      if (document.getElementById("wrong")) {
+        currentTarget.removeChild(document.getElementById("wrong"));
+      }
+      const correct = document.createElement("div");
+      correct.setAttribute("class", "correct");
+      correct.textContent = "Correct!";
+      currentTarget.appendChild(correct);
+
+      setTimeout(replaceQuestion, 500);
+    } else {
+      target.setAttribute("class", "wrong-answer");
+
+      if (document.getElementById("wrong")) {
+        currentTarget.removeChild(document.getElementById("wrong"));
+      }
+      const wrong = document.createElement("div");
+      wrong.setAttribute("class", "wrong");
+      wrong.setAttribute("id", "wrong");
+      wrong.textContent = "Wrong!";
+      currentTarget.appendChild(wrong);
+
+      if (timerValue >= 10) {
+        timerValue -= 10;
+      } else {
+        timerValue = 0;
+      }
+    }
+  }
 };
+
+// determine final score
+const finalScore = () => {
+  const highScores = localStorage.getItem("highScores");
+
+  if (highScores) {
+    return JSON.parse(highScores);
+  } else {
+    return [];
+  }
+};
+
+// submit final score
+const submitScore = (event) => {
+  event.preventDefault();
+
+  // get button event
+  const target = event.target;
+
+  // if button is clicked
+  if (target.matches("button")) {
+    const score = timerValue;
+    const initials = document.getElementById("name-input").value;
+
+    // if initials input is not empty, add initials and score to an array, set to local storage
+    if (initials !== "") {
+      const highScore = {
+        initials: initials,
+        score: score,
+      };
+      const highScores = finalScore();
+      highScores.push(highScore);
+      localStorage.setItem("highScores", JSON.stringify(highScores));
+    }
+
+    location.href = "https://misha244.github.io/code-quiz/high-scores.html";
+  }
+};
+
+// display game over form
+const displayGameOverContainer = () => {
+  quizContainer.removeChild(document.getElementById("question-container"));
+  createGameOverForm();
+};
+
 // create a game over form
 const createGameOverForm = () => {
   const gameOverContainer = document.createElement("div");
-  gameOverContainer.setAttribute("id", "game-over-container");
-  gameOverContainer.setAttribute("class", "game-over-container");
+  gameOverContainer.setAttribute("id", "question-container");
+  gameOverContainer.setAttribute("class", "question-container");
   quizContainer.appendChild(gameOverContainer);
 
   const overElement = document.createElement("h2");
   overElement.setAttribute("id", "title");
   overElement.setAttribute("class", "title");
-  overElement.textContent = "Game Over!";
+  overElement.textContent = "GAME OVER";
   gameOverContainer.appendChild(overElement);
 
   const scoreDiv = document.createElement("div");
   scoreDiv.setAttribute("id", "final-score");
   scoreDiv.setAttribute("class", "final-score");
-  scoreDiv.textContent = "Your final score is";
+  scoreDiv.textContent = "Your final score is: ";
   gameOverContainer.appendChild(scoreDiv);
 
   const spanElement = document.createElement("span");
@@ -193,42 +254,38 @@ const createGameOverForm = () => {
   const gameOverForm = document.createElement("form");
   gameOverForm.setAttribute("id", "game-over-form");
   gameOverForm.setAttribute("class", "game-over-form");
+  gameOverForm.addEventListener("click", submitScore);
   gameOverContainer.appendChild(gameOverForm);
 
-  const initialsForm = document.createElement("input");
-  initialsForm.setAttribute("type", "text");
-  initialsForm.setAttribute("placeholder", "Please enter your initials");
-  initialsForm.setAttribute("id", "initials-input");
-  initialsForm.setAttribute("class", "initials-input");
-  gameOverForm.appendChild(initialsForm);
+  const initialsInput = document.createElement("input");
+  initialsInput.setAttribute("id", "initials-input");
+  initialsInput.setAttribute("class", "initials-input");
+  initialsInput.setAttribute("type", "text");
+  initialsInput.setAttribute("placeholder", "Please enter your initials:");
+  gameOverForm.appendChild(initialsInput);
 
   const submitButton = document.createElement("button");
-  submitButton.setAttribute("type", "submit");
   submitButton.setAttribute("id", "submit-btn");
-  submitButton.setAttribute("class", "submit-btn");
+  submitButton.setAttribute("class", "btn submit-btn");
+  submitButton.setAttribute("type", "submit");
   submitButton.textContent = "Submit";
   gameOverForm.appendChild(submitButton);
 };
 
-// remove start & intro container and start quiz
+// remove intro contaier and start quiz
 const startQuiz = () => {
-  const startContainer = document.getElementById("start-container");
-  quizContainer.removeChild(startContainer);
-
-  renderQuestion();
-
-  introDiv.remove();
+  // remove intro div
+  quizContainer.removeChild(introDivElement);
+  // create question div
+  renderQuestion(questionsArray[index]);
 };
-//TODO
 
-// set up highscores fns
-// take back to index.html when done
-// local memory store highscores
+//TODO
 // change qs to the proper ones
 // create clear score fn
 // try not to have a brain aneurysm while completing the above tasks
 
-startButton.addEventListener("click", () => {
+startQuizBtn.addEventListener("click", () => {
   startQuiz();
   startTimer();
 });
