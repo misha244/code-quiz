@@ -11,8 +11,15 @@ const goBack = () => {
 const clearScore = () => {
   localStorage.clear();
 };
-// TODO
+
 // fn to get scores from storage
+const getScoresFromLocal = () => {
+  const highScores = localStorage.getItem("highScores");
+  console.log(highScores);
+};
+
+// TODO
+
 // on load - read local storage & remove from page
 /// create li for each score item
 /// append to score div
