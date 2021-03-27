@@ -28,6 +28,10 @@ window.addEventListener("load", onLoad) => {
   console.log("Oh wow - Owen Wilson");
 });
 
+// add event listeners for buttons
+goBackButton.addEventListener("click", goBack);
+clearScoreButton.addEventListener("click", clearScore);
+
 // TODO
 
 /// create li for each score item
