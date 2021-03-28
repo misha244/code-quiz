@@ -17,12 +17,13 @@ const getScoresFromLocal = () => {
 };
 
 // rank scores in descending order
-const rankScores = () => {};
-const score =
-  // clear score fn - remove from local storage
-  function clearScore() {
-    localStorage.clear();
-  };
+const rankScores = (lowestScore, highestScore) => {};
+const score = timerValue;
+
+// clear score fn - remove from local storage
+function clearScore() {
+  localStorage.clear();
+}
 
 // create high scores table/list using the scores in local storage
 const createHighScoresTable = (highScores) => {
