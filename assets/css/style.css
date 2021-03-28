@@ -6,6 +6,7 @@ body {
   background-image: url(../images/background.jpg);
 }
 /* Landing Page properties*/
+
 .header {
   background-color: mediumpurple;
   color: white;
@@ -13,7 +14,12 @@ body {
   flex-direction: row;
   padding: 15px;
   justify-content: space-between;
-  font-size: 2rem;
+  font-size: 1.8rem;
+}
+.h1 {
+  padding: 1rem;
+  font-size: 2.2rem;
+  font-weight: bold;
 }
 .intro-section {
   background-color: rgb(149, 86, 205);
@@ -52,6 +58,7 @@ body {
 .start-btn {
   font-size: 25px;
   padding: 0.5rem;
+  margin: 1rem;
 }
 .choice-btn {
   background-color: rgb(98, 149, 225);
