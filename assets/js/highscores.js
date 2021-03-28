@@ -9,7 +9,7 @@ const highScores = JSON.parse(localStorage.getItem("highScores")) || [];
 console.log(highScores);
 
 // rank scores in descending order
-
+const rankScores = () => {};
 const score =
   // clear score fn - remove from local storage
   function clearScore() {
@@ -29,7 +29,13 @@ goBackButton.addEventListener("click", goBack);
 clearScoreButton.addEventListener("click", clearScore);
 
 // create high scores table/list using the scores in local storage
-const createHighScoresTable = () => {};
+const createHighScoresTable = () => {
+  const createTable;
+
+  //const createRowElement = () => {
+  //  const rowElement =
+  //};
+};
 
 // TODO
 
