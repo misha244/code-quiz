@@ -2,7 +2,11 @@ const bodyElement = document.body;
 const goBackButton = document.getElementById("go-back-btn");
 const clearScoreButton = document.getElementById("clear-btn");
 
-//const rankScores = () => {};
+let index = 0;
+
+// rank scores in descending order
+const rankScores = (lowestScore, highestScore) =>
+  highestScore.score - lowestScore.score;
 
 // clear score fn - remove from local storage
 function clearScore() {
