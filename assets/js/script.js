@@ -194,19 +194,18 @@ const finalScore = () => {
   }
 };
 
-// submit final score
+// submit final score and save in local storage
+
 const submitScore = (event) => {
   event.preventDefault();
+  console.log("yasssss");
 
-  // get button event
   const target = event.target;
 
-  // if button is clicked
   if (target.matches("button")) {
-    const score = timerValue;
     const initials = document.getElementById("initials-input").value;
+    const score = timerValue;
 
-    // if initials input is not empty, add initials and score to an array, set to local storage
     if (initials !== "") {
       const highScore = {
         initials: initials,
