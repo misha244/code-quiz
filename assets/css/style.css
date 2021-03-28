@@ -2,7 +2,7 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 body {
-  background-color: rgb(175, 224, 170);
+  background-image: url(/assets/images/background.jpg);
 }
 .header {
   background-color: mediumpurple;
@@ -22,7 +22,7 @@ body {
   padding: 20px;
 }
 .quiz-container {
-  background-color: yellow;
+  background-color: aliceblue;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -32,7 +32,7 @@ body {
   left: 50%;
   transform: translate(-50%);
   margin: 0 0 100px 0;
-  padding: 20px 20px 50px 20px;
+  padding: 20px 20px 10px 20px;
 }
 .img {
   padding: 10px;
@@ -44,4 +44,7 @@ body {
 }
 .start-btn {
   font-size: 25px;
+}
+.footer {
+  background-color: blueviolet;
 }
