@@ -7,7 +7,7 @@ body {
 }
 .header {
   background-color: mediumpurple;
-  text-decoration: none;
+  color: white;
   display: flex;
   flex-direction: row;
   padding: 15px;
@@ -43,7 +43,7 @@ body {
   padding: 1rem;
 }
 .inspiration {
-  border: 1rem dashed mediumpurple;
+  border: 1rem solid mediumpurple;
   border-radius: 3.5rem;
   width: 32rem;
 }
@@ -52,15 +52,27 @@ body {
   padding: 0.5rem;
 }
 .choice-btn {
-  background-color: palevioletred;
+  background-color: rgb(98, 149, 225);
   width: 12rem;
   font-size: 1.5rem;
 }
+.question-container {
+  background-color: rgb(98, 149, 225);
+  padding: 1rem;
+  border: 0.5rem solid #421a92;
+  border-radius: 2rem;
+}
+.overElement,
+.scoreDiv,
+.initials-input,
+.submit-btn {
+  padding: 0.5rem;
+}
 .wrong,
 .correct {
-  padding: 5px;
-  font-size: 1.8;
+  font-size: 1.8rem;
   background-color: #ccdcff;
+  color: black;
 }
 .correct-answer {
   background-color: green;
