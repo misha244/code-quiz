@@ -16,9 +16,9 @@ const getScoresFromLocal = () => {
   }
 };
 
-// rank scores in descending order
-const rankScores = (lowestScore, highestScore) => {};
-const score = timerValue;
+//// rank scores in descending order
+//const rankScores = (lowestScore, highestScore) => {};
+//const score = timerValue;
 
 // create high scores table/list using the scores in local storage
 const createHighScoresTable = (highScores) => {
@@ -39,6 +39,15 @@ const createHighScoresTable = (highScores) => {
   scoresDiv.appendChild(tableElement);
 };
 
+// render high score table
+const renderHighScoresTable = (highScores) => {
+  if (highScores.length !== 0) {
+    createHighScoresTable(highScores);
+  } else {
+    scoresDiv.textContent = "No content available";
+  }
+};
+
 // on load - read local storage
 const onLoad = () => {
   getScoresFromLocal();
@@ -56,4 +65,3 @@ clearScoreButton.addEventListener("click", clearScore);
 // TODO
 // expand onLoad fn
 // fix rank score fn
-// render high scores table
