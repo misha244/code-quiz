@@ -5,11 +5,11 @@ const scoresDiv = document.getElementById("scores");
 let index = 0;
 
 // clear score fn - remove from local storage
-function clearScore() {
+const clearScore = () => {
   localStorage.clear();
   scoresDiv.removeChild(document.getElementById("score-table"));
   scoresDiv.textContent = "No content available";
-}
+};
 // on load - read local storage and get scores
 const onLoad = () => {
   const highScores = getScoresFromLocal();
