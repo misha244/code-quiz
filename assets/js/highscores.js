@@ -30,7 +30,9 @@ clearScoreButton.addEventListener("click", clearScore);
 
 // create high scores table/list using the scores in local storage
 const createHighScoresTable = () => {
-  const createTable;
+  const tableElement = document.createElement("table");
+  tableElement.setAttribute("id", "score-table");
+  tableElement.setAttribute("class", "score-table");
 
   //const createRowElement = () => {
   //  const rowElement =
