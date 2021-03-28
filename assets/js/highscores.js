@@ -1,15 +1,19 @@
 const bodyElement = document.body;
 const goBackButton = document.getElementById("go-back-btn");
 const clearScoreButton = document.getElementById("clear-btn");
-const 
+const scoresDiv = document.getElementById("scores");
 
 let index = 0;
 
-
-// get high scores from local storage
+// get high scores from local storage. if empty - returns empty array
 const getScoresFromLocal = () => {
-  const highScores = JSON.parse(localStorage.getItem("highScores")) || [];
-  console.log(highScores);
+  const highScores = localStorage.getItem("highScores");
+
+  if (highScores) {
+    return JSON.parse(highScores);
+  } else {
+    return [];
+  }
 };
 
 // rank scores in descending order
@@ -35,6 +39,8 @@ const createHighScoresTable = (highScores) => {
   };
 
   highScores.forEach(createRowElement);
+
+  scoresDiv.appendChild(tableElement);
 };
 
 // on load - read local storage
