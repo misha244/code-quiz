@@ -8,9 +8,10 @@ let index = 0;
 function clearScore() {
   localStorage.clear();
 }
-// on load - read local storage
+// on load - read local storage and get scores
 const onLoad = () => {
   getScoresFromLocal();
+  rankScores();
   renderHighScoresTable();
 };
 
