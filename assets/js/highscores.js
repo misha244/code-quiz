@@ -4,10 +4,6 @@ const clearScoreButton = document.getElementById("clear-btn");
 
 let index = 0;
 
-// declare high scores const
-const highScores = JSON.parse(localStorage.getItem("highScores")) || [];
-console.log(highScores);
-
 // rank scores in descending order
 const rankScores = () => {};
 const score =
@@ -16,17 +12,11 @@ const score =
     localStorage.clear();
   };
 
-// on load - read local storage & remove from page
-const onLoad = () => {
-  getScoresFromLocal();
+// get high scores from local storage
+const getScoresFromLocal = () => {
+  const highScores = JSON.parse(localStorage.getItem("highScores")) || [];
+  console.log(highScores);
 };
-
-// add event listener on load
-window.addEventListener("load", onLoad);
-
-// add event listeners for buttons
-goBackButton.addEventListener("click", goBack);
-clearScoreButton.addEventListener("click", clearScore);
 
 // create high scores table/list using the scores in local storage
 const createHighScoresTable = () => {
@@ -39,6 +29,17 @@ const createHighScoresTable = () => {
   //};
 };
 
+// on load - read local storage & remove from page
+const onLoad = () => {
+  getScoresFromLocal();
+};
+
+// add event listener on load
+window.addEventListener("load", onLoad);
+
+// add event listeners for buttons
+goBackButton.addEventListener("click", goBack);
+clearScoreButton.addEventListener("click", clearScore);
 // TODO
 
 /// create li for each score item
