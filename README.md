@@ -18,7 +18,7 @@ The quiz's style and colour scheme is inspired by _Who Wants to Be a Millionaire
 
 The quiz contains 5 multiple answer questions, but could very easily be expanded through simply adding on to the questions array.
 
-On start, the introductionary form is replaced by the first question and the timer is triggered, starting its countdown from 60 seconds. When incorrect answer is selected, 10 points are deducted from the remaining time. Whatever time is left on completion of the quiz then becomes the user's score. An option is given to provide initials and submit the score. The user is then shown the page containing the high scores. They're given the option to clear the current high score log and/or go back to the start page and give the quiz another try.
+On start, the introductionary form is replaced by the first question and the timer is triggered, starting its countdown from 60 seconds. When incorrect answer is selected, 10 points are deducted from the remaining time. The user is notified whether their answer was correct/incorrect and the quiz continues to the next question. Whatever time is left on completion of the quiz then becomes the user's score. An option is given to provide initials and submit the score. The user is then shown the page containing the high scores. They're given the option to clear the current high score log and/or go back to the start page and give the quiz another try.
 
 ## Screenshots
 
