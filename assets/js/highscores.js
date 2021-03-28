@@ -7,6 +7,8 @@ let index = 0;
 // clear score fn - remove from local storage
 function clearScore() {
   localStorage.clear();
+  scoresDiv.removeChild(document.getElementById("score-table"));
+  scoresDiv.textContent = "No content available";
 }
 // on load - read local storage and get scores
 const onLoad = () => {
@@ -26,7 +28,7 @@ const getScoresFromLocal = () => {
   }
 };
 
-//// rank scores in descending order
+// rank scores in descending order
 const rankScores = (lowestScore, highestScore) => {
   highestScore.score - lowestScore.score;
 };
