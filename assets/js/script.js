@@ -102,7 +102,7 @@ const renderQuestion = (question) => {
   }
 };
 
-// set up start timer fn
+// set up start timer function
 const startTimer = () => {
   const timerTick = () => {
     timerSpan.textContent = timerValue;
@@ -267,9 +267,5 @@ const startQuiz = () => {
   startTimer();
   renderQuestion(questionsArray[index]);
 };
-
-//TODO
-// change qs to the proper ones
-// try not to have a brain aneurysm while completing the above tasks
 
 startQuizBtn.addEventListener("click", startQuiz);

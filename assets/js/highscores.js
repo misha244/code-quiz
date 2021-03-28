@@ -14,7 +14,7 @@ const getScoresFromLocal = () => {
     return [];
   }
 };
-// clear score fn - remove from local storage
+// clear score function - remove from local storage
 const clearScore = () => {
   localStorage.clear();
   scoresDiv.removeChild(document.getElementById("score-table"));
@@ -31,7 +31,7 @@ const onLoad = () => {
 const rankScores = (lowestScore, highestScore) =>
   highestScore.score - lowestScore.score;
 
-// create high scores table/list using the scores in local storage
+// create high scores table using the scores in local storage
 const createHighScoresTable = (highScores) => {
   const tableElement = document.createElement("table");
   tableElement.setAttribute("id", "score-table");

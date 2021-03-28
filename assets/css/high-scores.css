@@ -5,6 +5,7 @@ html {
 body {
   background-image: url(../images/highscores-background.png);
 }
+/*Highscore Container properties*/
 .highscore-container {
   background-color: rgb(121, 165, 204);
   font-size: 2rem;
