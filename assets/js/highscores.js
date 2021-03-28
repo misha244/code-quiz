@@ -2,17 +2,12 @@ const bodyElement = document.body;
 const goBackButton = document.getElementById("go-back-btn");
 const clearScoreButton = document.getElementById("clear-btn");
 
-// go back fn - navigate to index.html
-const goBack = () => {
-  location.href = "./index.html";
-};
-
-const rankScores = () => {};
+//const rankScores = () => {};
 
 // clear score fn - remove from local storage
-const clearScore = () => {
+function clearScore() {
   localStorage.clear();
-};
+}
 
 // declare high scores const
 const highScores = JSON.parse(localStorage.getItem("highScores")) || [];
