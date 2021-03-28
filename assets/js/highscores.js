@@ -1,8 +1,16 @@
 const bodyElement = document.body;
 const goBackButton = document.getElementById("go-back-btn");
 const clearScoreButton = document.getElementById("clear-btn");
+const 
 
 let index = 0;
+
+
+// get high scores from local storage
+const getScoresFromLocal = () => {
+  const highScores = JSON.parse(localStorage.getItem("highScores")) || [];
+  console.log(highScores);
+};
 
 // rank scores in descending order
 const rankScores = () => {};
@@ -12,24 +20,24 @@ const score =
     localStorage.clear();
   };
 
-// get high scores from local storage
-const getScoresFromLocal = () => {
-  const highScores = JSON.parse(localStorage.getItem("highScores")) || [];
-  console.log(highScores);
-};
-
 // create high scores table/list using the scores in local storage
-const createHighScoresTable = () => {
+const createHighScoresTable = (highScores) => {
   const tableElement = document.createElement("table");
   tableElement.setAttribute("id", "score-table");
   tableElement.setAttribute("class", "score-table");
+  const createRowElement = (highScore) => {
+    const rowElement = tableElement.insertRow(-1);
+    rowElement.setAttribute("id", "row-element");
+    rowElement.setAttribute("class", "row-element");
+    rowElement.insertCell(-1).textContent = highScore.initials;
+    rowElement.insertCell(-1).textContent = highScore.score;
+    index += 1;
+  };
 
-  //const createRowElement = () => {
-  //  const rowElement =
-  //};
+  highScores.forEach(createRowElement);
 };
 
-// on load - read local storage & remove from page
+// on load - read local storage
 const onLoad = () => {
   getScoresFromLocal();
 };
