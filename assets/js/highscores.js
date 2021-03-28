@@ -10,9 +10,9 @@ function clearScore() {
 }
 // on load - read local storage and get scores
 const onLoad = () => {
-  getScoresFromLocal();
-  rankScores();
-  renderHighScoresTable();
+  const highScores = getScoresFromLocal();
+  const rankedScores = highScores.sort(rankScores);
+  renderHighScoresTable(rankedScores);
 };
 
 // get high scores from local storage. if empty - returns empty array
@@ -52,17 +52,13 @@ const createHighScoresTable = (highScores) => {
 
 // render high score table
 const renderHighScoresTable = (highScores) => {
-  if (highScores.length !== 0) {
-    createHighScoresTable(highScores);
-  } else {
+  if (highScores.length === 0) {
     scoresDiv.textContent = "No content available";
+  } else {
+    createHighScoresTable(highScores);
   }
 };
 
 // event listeners
 window.addEventListener("load", onLoad);
 clearScoreButton.addEventListener("click", clearScore);
-
-// TODO
-// expand onLoad fn
-// fix rank score fn
