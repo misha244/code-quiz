@@ -51,6 +51,7 @@ const renderHighScoresTable = (highScores) => {
 // on load - read local storage
 const onLoad = () => {
   getScoresFromLocal();
+  renderHighScoresTable();
 };
 
 // clear score fn - remove from local storage
