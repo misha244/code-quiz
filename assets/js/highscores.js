@@ -52,8 +52,8 @@ function clearScore() {
 // add event listeners
 window.addEventListener("load", onLoad);
 clearScoreButton.addEventListener("click", clearScore);
-// TODO
 
-/// create li for each score item
-/// append to score div
+// TODO
+// expand onLoad fn
+// fix rank score fn
 // render high scores table
