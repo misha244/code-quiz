@@ -1,9 +1,18 @@
 const bodyElement = document.body;
-const goBackButton = document.getElementById("go-back-btn");
 const clearScoreButton = document.getElementById("clear-btn");
 const scoresDiv = document.getElementById("scores");
 
 let index = 0;
+
+// clear score fn - remove from local storage
+function clearScore() {
+  localStorage.clear();
+}
+// on load - read local storage
+const onLoad = () => {
+  getScoresFromLocal();
+  renderHighScoresTable();
+};
 
 // get high scores from local storage. if empty - returns empty array
 const getScoresFromLocal = () => {
@@ -17,8 +26,9 @@ const getScoresFromLocal = () => {
 };
 
 //// rank scores in descending order
-//const rankScores = (lowestScore, highestScore) => {};
-//const score = timerValue;
+const rankScores = (lowestScore, highestScore) => {
+  highestScore.score - lowestScore.score;
+};
 
 // create high scores table/list using the scores in local storage
 const createHighScoresTable = (highScores) => {
@@ -48,18 +58,7 @@ const renderHighScoresTable = (highScores) => {
   }
 };
 
-// on load - read local storage
-const onLoad = () => {
-  getScoresFromLocal();
-  renderHighScoresTable();
-};
-
-// clear score fn - remove from local storage
-function clearScore() {
-  localStorage.clear();
-}
-
-// add event listeners
+// event listeners
 window.addEventListener("load", onLoad);
 clearScoreButton.addEventListener("click", clearScore);
 
