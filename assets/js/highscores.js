@@ -9,9 +9,6 @@ const highScores = JSON.parse(localStorage.getItem("highScores")) || [];
 console.log(highScores);
 
 // rank scores in descending order
-const rankScores = (lowestScore, highestScore) => {
-  highestScore.score - lowestScore.score;
-}; //todo define lower
 
 const score =
   // clear score fn - remove from local storage
