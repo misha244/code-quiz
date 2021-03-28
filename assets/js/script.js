@@ -195,7 +195,6 @@ const finalScore = () => {
 };
 
 // submit final score and save in local storage
-
 const submitScore = (event) => {
   event.preventDefault();
   console.log("yasssss");
@@ -272,13 +271,9 @@ const createGameOverForm = () => {
 
 // remove intro contaier and start quiz
 const startQuiz = () => {
-  // remove intro div
   quizContainer.removeChild(introDivElement);
-  // remove start btn
   startQuizBtn.remove();
-  // start timer
   startTimer();
-  // create question div
   renderQuestion(questionsArray[index]);
 };
 
