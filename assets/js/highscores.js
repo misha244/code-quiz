@@ -14,18 +14,9 @@ const clearScore = () => {
   localStorage.clear();
 };
 
-// fn to get scores from storage
-const getScoresFromLocal = () => {
-  const highScores = localStorage.getItem("highScores");
-  console.log(highScores);
-
-  // parse scores to object if present
-  if (highScores) {
-    return JSON.parse(highScores);
-  } else {
-    return [];
-  }
-};
+// declare high scores const
+const highScores = JSON.parse(localStorage.getItem("highScores")) || [];
+console.log(highScores);
 
 // on load - read local storage & remove from page
 const onLoad = () => {
