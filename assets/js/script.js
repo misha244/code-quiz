@@ -11,55 +11,46 @@ let index = 0;
 // questions array
 const questionsArray = [
   {
-    title: "Who let the dogs out?",
-    choices: [
-      "The Baha Men",
-      "The Illuminati",
-      "Elon Musk",
-      "The dogs let themselves out",
-    ],
-    answer: "The Baha Men",
+    title: "Which operator is used to assign a value to a variable?",
+    choices: ["=", "*", "-", "x"],
+    answer: "=",
   },
   {
-    title: "Moon landing?",
+    title: "How can you add a comment in a JavaScript?",
     choices: [
-      "staged by Walt Disney",
-      "sure",
-      "Alexa, show Buzz Aldrin punching that dude",
-      "alexa, play man on the moon by r.e.m.",
+      "//This is a comment",
+      " 'This is a comment' ",
+      " <!--This is a comment--> ",
+      "/* This is a comment",
     ],
-    answer: "sure",
+    answer: "//This is a comment",
   },
 
   {
-    title: "Dennis is asshole. Why Charlie hate",
+    title: "What is the correct way to write a JavaScript array?",
     choices: [
-      "Dee looks like a bird",
-      "Because of the implication",
-      "Dennis is a bastard man",
-      "Wild card, baby!",
+      "var colors = (1:'red', 2:'green', 3:'blue')",
+      "var colors = ['red', 'green', 'blue']",
+      "var colors = 1 = ('red'), 2 = ('green'), 3 = ('blue')",
+      "var colors = 'red', 'green', 'blue'",
     ],
-    answer: "Dennis is a bastard man",
+    answer: "var colors = ['red', 'green', 'blue']",
   },
   {
-    title: "Do you know who I am!?!",
+    title: "How does a FOR loop start?",
     choices: [
-      "Who are you?!",
-      "Ronnie Pickering!",
-      "Who the fuck is that?",
-      "Me",
+      "for (i <= 5; i++)",
+      "for (i = 0; i <= 5)",
+      "for i = 1 to 5",
+      "for (i = 0; i <= 5; i++)",
     ],
-    answer: "Ronnie Pickering!",
+    answer: "for (i = 0; i <= 5; i++)",
   },
   {
-    title: "Who was Stone Cold Steve Austin addressing in his 3:16 promo?",
-    choices: [
-      "Shawn Michaels",
-      "Vince McMahon",
-      "Triple H",
-      "Jake 'The Snake' Roberts",
-    ],
-    answer: "Jake 'The Snake' Roberts",
+    title:
+      "How to write an IF statement for executing some code if 'i' is NOT equal to 5?",
+    choices: ["if i =! 5 then", "if i <> 5", "if (i != 5)", "if (i <> 5)"],
+    answer: "if (i != 5)",
   },
 ];
 
