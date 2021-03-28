@@ -7,7 +7,6 @@ const introDivElement = document.getElementById("intro-section");
 // declaring on-start value
 let timerValue = 60;
 let index = 0;
-timerSpan.textContent = timerValue;
 
 // questions array
 const questionsArray = [
@@ -205,7 +204,7 @@ const submitScore = (event) => {
   // if button is clicked
   if (target.matches("button")) {
     const score = timerValue;
-    const initials = document.getElementById("name-input").value;
+    const initials = document.getElementById("initials-input").value;
 
     // if initials input is not empty, add initials and score to an array, set to local storage
     if (initials !== "") {
@@ -278,16 +277,14 @@ const startQuiz = () => {
   quizContainer.removeChild(introDivElement);
   // remove start btn
   startQuizBtn.remove();
+  // start timer
+  startTimer();
   // create question div
   renderQuestion(questionsArray[index]);
 };
 
 //TODO
 // change qs to the proper ones
-// create clear score fn
 // try not to have a brain aneurysm while completing the above tasks
 
-startQuizBtn.addEventListener("click", () => {
-  startQuiz();
-  startTimer();
-});
+startQuizBtn.addEventListener("click", startQuiz);
