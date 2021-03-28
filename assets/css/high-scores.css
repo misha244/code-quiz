@@ -3,7 +3,7 @@ html {
   font-size: 10px;
 }
 body {
-  background-image: url(/assets/images/highscores-background.png);
+  background-image: url(../images/highscores-background.png);
 }
 .highscore-container {
   background-color: rgb(121, 165, 204);
