@@ -4,19 +4,6 @@ const scoresDiv = document.getElementById("scores");
 
 let index = 0;
 
-// clear score fn - remove from local storage
-const clearScore = () => {
-  localStorage.clear();
-  scoresDiv.removeChild(document.getElementById("score-table"));
-  scoresDiv.textContent = "No content available";
-};
-// on load - read local storage and get scores
-const onLoad = () => {
-  const highScores = getScoresFromLocal();
-  const rankedScores = highScores.sort(rankScores);
-  renderHighScoresTable(rankedScores);
-};
-
 // get high scores from local storage. if empty - returns empty array
 const getScoresFromLocal = () => {
   const highScores = localStorage.getItem("highScores");
@@ -27,11 +14,22 @@ const getScoresFromLocal = () => {
     return [];
   }
 };
+// clear score fn - remove from local storage
+const clearScore = () => {
+  localStorage.clear();
+  scoresDiv.removeChild(document.getElementById("score-table"));
+  scoresDiv.textContent = "No content available";
+};
+// on load - read local storage and get ranked scores
+const onLoad = () => {
+  const highScores = getScoresFromLocal();
+  const rankedScores = highScores.sort(rankScores);
+  renderHighScoresTable(rankedScores);
+};
 
 // rank scores in descending order
-const rankScores = (lowestScore, highestScore) => {
+const rankScores = (lowestScore, highestScore) =>
   highestScore.score - lowestScore.score;
-};
 
 // create high scores table/list using the scores in local storage
 const createHighScoresTable = (highScores) => {
