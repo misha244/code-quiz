@@ -16,15 +16,17 @@ body {
 }
 
 .intro-section {
-  background-color: lavenderblush;
+  background-color: rgb(149, 86, 205);
   display: flex;
   flex-direction: column;
   justify-content: center;
   padding: 20px;
   font-size: 2rem;
+  border: 0.5rem solid #610788;
+  border-radius: 2rem;
 }
 .quiz-container {
-  background-color: yellow;
+  color: white;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -33,22 +35,36 @@ body {
   top: 20%;
   left: 50%;
   transform: translate(-50%);
-  margin: 0 0 100px 0;
-  padding: 20px 20px 10px 20px;
+  margin: 0 0 10rem 0;
+  padding: 2rem;
+  font-size: 1.8rem;
 }
 .img {
-  padding: 10px;
+  padding: 1rem;
 }
 .inspiration {
-  border: 10px dashed mediumpurple;
-  border-radius: 35px;
-  width: 320px;
+  border: 1rem dashed mediumpurple;
+  border-radius: 3.5rem;
+  width: 32rem;
 }
 .start-btn {
   font-size: 25px;
+  padding: 0.5rem;
 }
-.footer {
-  background-color: blueviolet;
-  position: absolute;
-  bottom: 0%;
+.choice-btn {
+  background-color: palevioletred;
+  width: 12rem;
+  font-size: 1.5rem;
+}
+.wrong,
+.correct {
+  padding: 5px;
+  font-size: 1.8;
+  background-color: #ccdcff;
+}
+.correct-answer {
+  background-color: green;
+}
+.wrong-answer {
+  background-color: orange;
 }
