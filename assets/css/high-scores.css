@@ -7,8 +7,8 @@ body {
 }
 /*Highscore Container properties*/
 .highscore-container {
-  background-color: rgb(121, 165, 204);
-  font-size: 2rem;
+  background-color: rgba(121, 165, 204, 0.7);
+  font-size: 1.5rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -17,6 +17,30 @@ body {
   top: 20%;
   left: 50%;
   transform: translate(-50%);
-  padding: 2rem;
-  border: 0.5rem solid black;
+  padding: 2rem 10rem 5rem 10rem;
+  border: 0.5rem solid #610788;
+}
+.title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  padding: 1rem;
+  color: white;
+}
+table,
+th,
+td {
+  border: 1px solid black;
+}
+.score-table {
+  width: 15vw;
+  padding: 1rem;
+  justify-content: space-between;
+  background-color: white;
+}
+.btn-div {
+  width: 15vw;
+  padding: 0.5rem;
+}
+.btn {
+  padding: 0.3rem;
 }
